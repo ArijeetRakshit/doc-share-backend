@@ -21,7 +21,7 @@ const DbConnection = async () => {
     try{
         await mongoose.connect(process.env.MOG_URI);
     }catch(err){
-        process.exit(1)
+        process.exit(0);
     }
 };
 
