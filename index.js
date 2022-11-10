@@ -52,6 +52,7 @@ io.on('connection', socket => {
 
     socket.on('disconnect', () => {
         const {docId, updatedUsers} = deleteUser(socket.id);
+        if(!docId || !updatedUsers) return;
         io.to(docId).emit('load-users', updatedUsers);
     })
 })
